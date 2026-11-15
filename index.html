@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101827">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Moje nabíjení">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Moje nabíjení ⚡</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#151f30;--muted:#9aa9bd;--text:#f4f7fb;--accent:#55d6a4;--line:#2a384d}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#111d30,#080e19 70%);color:var(--text);font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;padding:env(safe-area-inset-top) 16px env(safe-area-inset-bottom)}
+main{max-width:520px;margin:0 auto;padding:26px 0 34px}.top{display:flex;align-items:center;gap:12px;margin-bottom:22px}.bolt{width:48px;height:48px;border-radius:15px;background:#183c37;display:grid;place-items:center;font-size:27px}.eyebrow{font-size:12px;letter-spacing:1.5px;color:var(--accent);font-weight:700}.top h1{font-size:25px;margin:3px 0 0}.sub{color:var(--muted);font-size:14px;margin:0 0 20px}
+.card{background:rgba(21,31,48,.96);border:1px solid var(--line);border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 12px 35px #0003}.card h2{font-size:16px;margin:0 0 16px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;color:var(--muted);font-size:12px;margin:0 0 7px}.field input{width:100%;background:#0d1726;border:1px solid #34445b;border-radius:12px;color:var(--text);font-size:18px;padding:13px 12px;outline:none}.field input:focus{border-color:var(--accent)}.unit{color:var(--muted);font-size:12px;margin-top:6px}
+.results{display:grid;grid-template-columns:1fr 1fr;gap:10px}.result{background:#0d1726;border:1px solid #27374c;border-radius:15px;padding:14px}.result.primary{grid-column:span 2;background:linear-gradient(120deg,#123d36,#102c32);border-color:#276957}.result .label{font-size:12px;color:var(--muted)}.result.primary .label{color:#b5e9d7}.value{font-size:25px;font-weight:750;margin-top:6px;letter-spacing:-.5px}.result.primary .value{font-size:34px;color:#7cf0bd}.small{font-size:12px;color:var(--muted);line-height:1.5;margin-top:12px}.range{width:100%;accent-color:var(--accent)}.actions{display:flex;gap:10px;margin-top:14px}.btn{border:0;border-radius:12px;padding:13px 15px;font-weight:700;font-size:14px;cursor:pointer}.save{background:var(--accent);color:#06251c;flex:1}.reset{background:#263449;color:#e5edf7}.foot{text-align:center;color:#718198;font-size:11px;margin:22px 0 0}.note{font-size:12px;color:var(--muted);line-height:1.5}
+@media(max-width:360px){.value{font-size:22px}.result.primary .value{font-size:30px}.card{padding:15px}}
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><div class="bolt">⚡</div><div><div class="eyebrow">HYUNDAI IONIQ 3</div><h1>Moje nabíjení</h1></div></div>
+  <p class="sub">Jednoduchý přehled, kolik tě stojí nabití auta.</p>
+
+  <section class="card">
+    <h2>🔋 Stav baterie</h2>
+    <div class="fields">
+      <div class="field"><label for="from">Baterie před nabíjením</label><input id="from" type="number" min="0" max="100" step="1" value="20"><div class="unit">%</div></div>
+      <div class="field"><label for="to">Baterie po nabíjení</label><input id="to" type="number" min="0" max="100" step="1" value="80"><div class="unit">%</div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>⚙️ Nastavení</h2>
+    <div class="fields">
+      <div class="field"><label for="capacity">Kapacita baterie</label><input id="capacity" type="number" min="1" max="200" step="0.1" value="42.2"><div class="unit">kWh</div></div>
+      <div class="field"><label for="loss">Ztráty při nabíjení</label><input id="loss" type="number" min="0" max="40" step="1" value="10"><div class="unit">%</div></div>
+      <div class="field" style="grid-column:span 2"><label for="price">Cena elektřiny</label><input id="price" type="number" min="0" step="0.01" value="5"><div class="unit">Kč za 1 kWh ze sítě</div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>📊 Výsledek nabíjení</h2>
+    <div class="results">
+      <div class="result primary"><div class="label">Cena nabíjení</div><div class="value" id="cost">— Kč</div></div>
+      <div class="result"><div class="label">Energie do baterie</div><div class="value" id="battery">— kWh</div></div>
+      <div class="result"><div class="label">Odběr ze sítě</div><div class="value" id="grid">— kWh</div></div>
+      <div class="result"><div class="label">Ztráty</div><div class="value" id="lossKwh">— kWh</div></div>
+      <div class="result"><div class="label">Rozdíl baterie</div><div class="value" id="percent">— %</div></div>
+    </div>
+    <p class="small" id="detail">Zadej stav baterie a cenu elektřiny.</p>
+    <div class="actions"><button class="btn save" id="save">Uložit nastavení</button><button class="btn reset" id="reset">Obnovit</button></div>
+  </section>
+  <p class="note">Výpočet je orientační. Ztráty jsou nastavené jako podíl energie odebrané ze sítě. Skutečná hodnota se může lišit podle teploty, výkonu a podmínek nabíjení.</p>
+  <p class="foot">Moje nabíjení ⚡ · kapacita 42,2 kWh</p>
+</main>
+<script>
+const ids=['from','to','capacity','loss','price'];
+const el=id=>document.getElementById(id);
+const fmt=(n,d=2)=>Number(n).toLocaleString('cs-CZ',{minimumFractionDigits:d,maximumFractionDigits:d});
+function calc(){
+ let a=Number(el('from').value), b=Number(el('to').value), cap=Number(el('capacity').value), loss=Number(el('loss').value), price=Number(el('price').value);
+ let valid=[a,b,cap,loss,price].every(Number.isFinite)&&a>=0&&b<=100&&a<=100&&b>=a&&cap>0&&loss>=0&&loss<100&&price>=0;
+ if(!valid){['cost','battery','grid','lossKwh','percent'].forEach(x=>el(x).textContent='—');el('detail').textContent='Zkontroluj zadané hodnoty. Konečný stav musí být vyšší nebo stejný jako počáteční.';return}
+ let diff=b-a, into=cap*diff/100, fromGrid=into/(1-loss/100), lost=fromGrid-into, cost=fromGrid*price;
+ el('cost').textContent=fmt(cost,2)+' Kč';el('battery').textContent=fmt(into)+' kWh';el('grid').textContent=fmt(fromGrid)+' kWh';el('lossKwh').textContent=fmt(lost)+' kWh';el('percent').textContent=fmt(diff,0)+' %';
+ el('detail').textContent=`Nabití z ${fmt(a,0)} % na ${fmt(b,0)} % · odhad odběru ze sítě ${fmt(fromGrid)} kWh · cena ${fmt(price,2)} Kč/kWh.`;
+}
+ids.forEach(id=>el(id).addEventListener('input',calc));
+el('save').addEventListener('click',()=>{try{localStorage.setItem('mojeNabijeni',JSON.stringify(Object.fromEntries(ids.map(id=>[id,el(id).value]))));el('save').textContent='Uloženo ✓';setTimeout(()=>el('save').textContent='Uložit nastavení',1500)}catch(e){el('detail').textContent='Tento prohlížeč neumožnil uložit nastavení.'}});
+el('reset').addEventListener('click',()=>{const d={from:20,to:80,capacity:42.2,loss:10,price:5};ids.forEach(id=>el(id).value=d[id]);calc()});
+try{const saved=JSON.parse(localStorage.getItem('mojeNabijeni')||'null');if(saved)ids.forEach(id=>{if(saved[id]!==undefined)el(id).value=saved[id]})}catch(e){}
+calc();
+if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body></html>
