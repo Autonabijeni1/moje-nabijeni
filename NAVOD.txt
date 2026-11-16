@@ -1,0 +1,7 @@
+MOJE NABÍJENÍ 2.0
+
+Na GitHubu otevři úložiště moje-nabijeni > Add file > Upload files. Nahraj soubory index.html, manifest.json, sw.js, icon-192.png a icon-512.png do hlavní složky, nikoli ZIP. Potvrď nahrazení souborů a Commit changes. Soubor NAVOD.txt není pro provoz potřeba.
+
+Počkej na dokončení GitHub Actions a znovu otevři aplikaci na iPhonu. Případně ji úplně zavři a znovu otevři, aby se načetla nová verze.
+
+Historie se ukládá lokálně na iPhonu; v Nastavení pravidelně exportuj zálohu JSON. Původní nastavení ceny, kapacity a ztrát se při prvním spuštění převezme ze staré aplikace, pokud existuje.
