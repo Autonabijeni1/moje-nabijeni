@@ -1,7 +1,10 @@
-MOJE NABÍJENÍ 2.0
+MOJE NABÍJENÍ 3
 
-Na GitHubu otevři úložiště moje-nabijeni > Add file > Upload files. Nahraj soubory index.html, manifest.json, sw.js, icon-192.png a icon-512.png do hlavní složky, nikoli ZIP. Potvrď nahrazení souborů a Commit changes. Soubor NAVOD.txt není pro provoz potřeba.
+Nahraj soubory do kořenové složky stejného GitHub repozitáře a potvrď Commit changes. Složku .github/workflows ponech beze změny.
 
-Počkej na dokončení GitHub Actions a znovu otevři aplikaci na iPhonu. Případně ji úplně zavři a znovu otevři, aby se načetla nová verze.
+Aplikace: https://autonabijeni1.github.io/moje-nabijeni/
 
-Historie se ukládá lokálně na iPhonu; v Nastavení pravidelně exportuj zálohu JSON. Původní nastavení ceny, kapacity a ztrát se při prvním spuštění převezme ze staré aplikace, pokud existuje.
+Nastavení: kapacita baterie, cena elektřiny, ztráty nabíjení a výkon nabíjení.
+Správa historie: vyber datum a typ záznamů, před smazáním se zobrazí potvrzení.
+
+Historie se ukládá lokálně v prohlížeči. Před aktualizací doporučujeme v Nastavení stáhnout zálohu JSON. Nemaž aplikaci z plochy ani data Safari, pokud chceš zachovat historii.
