@@ -1,9 +1,1 @@
-Moje nabíjení 5
-
-Nahraj všech šest souborů do stejného GitHub repozitáře. Data zůstávají v localStorage pod původním klíčem mojeNabijeniV2.
-
-Novinka: V Historii se automaticky vypočítává orientační úspora proti benzínu podle rozdílu tachometru mezi nabíjeními a nákladů z novějšího nabíjení. Spotřebu a cenu benzínu nastavíš v Nastavení.
-
-Před aktualizací si v Nastavení stáhni zálohu historie JSON.
-
-VERZE 6.0: V Historii je nová karta Celková úspora od začátku, nezávislá na vybraném období. Historie zůstává uložená v prohlížeči. Před aktualizací doporučujeme stáhnout zálohu JSON.
+Moje nabíjení 7.0\n\nNahraj všech 6 souborů do stejného repozitáře GitHub Pages a potvrď změny.\n\nNovinky: mazání podle období od–do, mazání celé historie, volba nabíjení / benzín / obojí. Mazání vyžaduje potvrzení, celá historie dvojí potvrzení.\n\nPřed testováním doporučujeme v Nastavení stáhnout zálohu JSON. Ukládání používá původní localStorage klíč mojeNabijeniV2 a zachovává stará data.\n
