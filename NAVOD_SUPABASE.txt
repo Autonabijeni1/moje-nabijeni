@@ -1,0 +1,10 @@
+Moje nabíjení 8 – Supabase
+
+1. V Supabase otevři SQL Editor, vlož obsah SUPABASE_SQL.txt a klikni Run.
+2. Na GitHub nahraj soubory index.html, sw.js a ostatní původní soubory ze ZIPu. SQL soubor na GitHub nahrávat nemusíš.
+3. V aplikaci v Nastavení otevři Cloudové ukládání, vytvoř účet e-mailem a heslem (případně potvrď e-mail) a přihlas se.
+4. Klikni Propojit / obnovit cloud. Pokud je cloud prázdný, potvrď první zálohu. Pokud obsahuje data, potvrď jejich obnovení až po stažení místní zálohy JSON.
+5. Poté se při změnách provádí automatická synchronizace. Když není internet, data zůstávají místně; po připojení stiskni Uložit nyní.
+
+POZOR: Na dvou telefonech neupravuj historii současně. Synchronizace ukládá celý stav, poslední zápis může přepsat dřívější.
+Nikdy nevkládej Supabase secret/service_role klíč do aplikace.
