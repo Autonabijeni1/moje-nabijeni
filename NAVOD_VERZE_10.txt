@@ -1,0 +1,14 @@
+MOJE NABÍJENÍ 10.0 – NÁVOD
+
+1. Před aktualizací v aplikaci stáhni zálohu JSON.
+2. Na GitHub nahraj obsah tohoto ZIPu do stejného repozitáře jako předchozí verzi.
+3. Po nasazení otevři aplikaci znovu; případně zavři a znovu spusť ikonu na ploše.
+4. V Nastavení zůstává přihlášení Supabase; klepni na Propojit / obnovit cloud, pokud je třeba.
+5. V Nastavení vyber automatické ceny ČSÚ nebo ruční režim. V režimu automatických cen se aplikace pokusí načíst týdenní průměr při připojení k internetu, maximálně jednou denně. Pokud server nepovolí přímý přístup z prohlížeče (CORS), zobrazí chybu a ponechá uložené ceny.
+6. V záložce Paliva uvidíš benzín i naftu. V Historii přibyly měsíční grafy.
+
+POZOR: Historické automatické úspory a grafy se prozatím přepočítávají podle aktuální ceny paliv. Historie již uložených porovnání má vlastní použité ceny. Výpočet úspory je orientační.
+
+Supabase SQL tabulka ani přihlašovací údaje se nemění.
+
+V Nastavení vyber benzínové nebo naftové auto a stiskni Uložit nastavení. Automatické úspory a grafy se přepočítají.
